@@ -2,7 +2,7 @@
 
 MySQL - Como criar um Banco de Dados
 
-	Nesta aula vamos aprender a criar um novo banco de dados usando o MySQL. Tamb‚m aprenderemos a verificar os bancos de dados existentes no sistema e a excluir bancos de dados nao mais utilizados.
+	Nesta aula vamos aprender a criar um novo banco de dados usando o MySQL. Também aprenderemos a verificar os bancos de dados existentes no sistema e a excluir bancos de dados nao mais utilizados.
 
 	Podemos criar um novo banco de dados com o comando a seguir:
 

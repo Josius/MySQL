@@ -1,0 +1,66 @@
+										Curso de MySQL – Auto Incremento de valores em colunas – 08
+
+Auto Incremento em colunas (AUTO_INCREMENT)
+
+    O auto incremento permite que um número único seja gerado quando um novo registro é inserido em uma tabela.
+    Em MYSQL trata-se da palavra chave AUTO_INCREMENT, cujo valor inicial padrão é 1, e se incrementa de 1 em 1.
+    Para que o valor da coluna se inicie em 100, por exemplo, após criar a tabela e especificar a coluna que usará auto incremento execute o comando a seguir:
+
+		ALTER TABLE tabela AUTO_INCREMENT = 100;
+
+    Ao inserir valores na tabela, não é necessário especificar o valor para a coluna de auto-incremento.
+    Só é permitido usar uma coluna de auto incremento por tabela, geralmente do tipo inteiro.
+    Necessita também da constraint NOT NULL (configurado automaticamente)
+
+
+
+Auto Incremento  – Exemplo
+
+	Vamos criar uma tabela de nome tbl_teste_incremento para estudarmos o uso do auto incremento em colunas. Use o código a seguir para isso:
+
+		CREATE TABLE tbl_teste_incremento (
+		Codigo SMALLINT PRIMARY KEY AUTO_INCREMENT,
+		Nome VARCHAR(20) NOT NULL
+		) AUTO_INCREMENT = 15;
+
+	Agora, vamos inserir dados aleatórios na tabela para realizarmos o teste. Não se preocupe se não entender o código, pois esses comandos serão estudados nas próximas aulas:
+
+		INSERT INTO tbl_teste_incremento (Nome) VALUES (‘Ana’);
+		INSERT INTO tbl_teste_incremento (Nome) VALUES (‘Maria’);
+		INSERT INTO tbl_teste_incremento (Nome) VALUES (‘Julia’);
+		INSERT INTO tbl_teste_incremento (Nome) VALUES (‘Joana’);
+
+	E, finalmente, verificamos se o auto invremento funcionou executando uma consulta na tabela:
+
+		SELECT * FROM tbl_teste_incremento;
+
+	Veja o resultado no MySQL Workbench:
+
+	********************IMAGEM NO SITE********************
+
+
+
+Verificar o valor atual do auto incremento
+
+	Podemos verificar o valor de incremento mais atual armazenado em uma tabela no banco de dados com o comando a seguir:
+
+		SELECT MAX (nome_coluna)
+		FROM tabela
+
+	Exemplo no banco de dados db_biblioteca:
+
+		SELECT MAX(ID_Livro)
+		FROM tbl_livro;
+
+
+
+Alterar o próximo valor no campo de  Auto-Incremento
+
+	Para alterar o valor de incremento do próximo registro a ser armazenado em uma tabela, use o comando a seguir:
+
+		ALTER TABLE tabela AUTO_INCREMENT = valor;
+
+	Ex.:- Para usar o valor 90 a partir do próximo registro:
+
+		ALTER TABLE tbl_teste_incremento
+		AUTO_INCREMENT = 90;
